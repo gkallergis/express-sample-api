@@ -1,4 +1,6 @@
-FROM node:latest
+FROM alpine:latest
+
+RUN apk add --no-cache nodejs npm
 
 WORKDIR /app
 COPY package.json /app
