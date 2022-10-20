@@ -1,7 +1,12 @@
+const os = require("os");
 const express = require("express");
+
 const app = express();
 
-app.get("/", (req, res) => res.send("I'm alive!"));
+app.get("/", (req, res) => {
+  const hostname = os.hostname();
+  res.send(`I'm alive! Hello from ${hostname}!`);
+});
 
 app.get("/health", (req, res) => {
   res.status(200);
