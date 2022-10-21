@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - $(aws ecr get-login --no-include-email --region eu-central-1)
+  build:
+    commands:
+      - docker build -t 208886439651.dkr.ecr.eu-central-1.amazonaws.com/express-sample-api:1.0.0 .
+  post_build:
+    commands:
+      - docker push 208886439651.dkr.ecr.eu-central-1.amazonaws.com/express-sample-api:1.0.0
+      - printf '[{"name":"express-sample-api","imageUri":"%s"}]' 208886439651.dkr.ecr.eu-central-1.amazonaws.com/express-sample-api:1.0.0 > imagedefinition.json
+artifacts:
+  files: imagedefinition.json
