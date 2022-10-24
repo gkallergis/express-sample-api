@@ -2,15 +2,15 @@ const os = require("os");
 const express = require("express");
 
 const app = express();
+const hostname = os.hostname();
 
 app.get("/", (req, res) => {
-  const hostname = os.hostname();
   res.send(`I'm alive! Hello from ${hostname}!`);
 });
 
 app.get("/new", (req, res) => {
   res.status(200);
-  res.send("New from ${hostname}!");
+  res.send(`New from ${hostname}!`);
 });
 
 app.get("/health", (req, res) => {
