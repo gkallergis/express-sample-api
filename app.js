@@ -13,6 +13,11 @@ app.get("/new", (req, res) => {
   res.send(`New from ${hostname}!!`);
 });
 
+app.get("/demo", (req, res) => {
+  res.status(200);
+  res.send(`New from Demo on ${hostname}!!`);
+});
+
 app.get("/health", (req, res) => {
   res.status(200);
   res.send("Ola Kalws!");
