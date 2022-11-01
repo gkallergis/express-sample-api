@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 
 app.get("/new", (req, res) => {
   res.status(200);
-  res.send(`New from ${hostname}!`);
+  res.send(`New from ${hostname}!!`);
 });
 
 app.get("/health", (req, res) => {
